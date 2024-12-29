@@ -20,8 +20,8 @@ To run it, just execute the following command `java -jar target/inditex-prices.j
 
 ## Use example
 
-`curl --location 'http://localhost:8080/inditex/prices/filter' \
---header 'Content-Type: application/json' \
+`curl --location 'http://localhost:8080/inditex/prices/filter'
+--header 'Content-Type: application/json'
 --data '{
     "productId": 35455,
     "brandId": 1,
