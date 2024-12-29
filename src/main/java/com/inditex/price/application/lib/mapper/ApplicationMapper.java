@@ -4,13 +4,15 @@ import com.inditex.price.application.domain.Price;
 import com.inditex.price.application.ports.in.forfilteringprices.FindByProductResult;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
+import org.mapstruct.Mapper;
 
-@org.mapstruct.Mapper
+@Mapper
 public interface ApplicationMapper {
 
-    ApplicationMapper MAPPER = Mappers.getMapper(ApplicationMapper.class);
+  ApplicationMapper MAPPER = Mappers.getMapper(ApplicationMapper.class);
 
-    @Mapping(target = "productId", source = "product.id")
-    @Mapping(target = "brandId", source = "brand.id")
-    FindByProductResult toFindByProductResult(Price val);
+  @Mapping(target = "productId", source = "product.id")
+  @Mapping(target = "brandId", source = "brand.id")
+  FindByProductResult toFindByProductResult(Price val);
+
 }

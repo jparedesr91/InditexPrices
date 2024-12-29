@@ -9,27 +9,28 @@ import com.inditex.price.application.ports.in.forfilteringprices.FindByProductQu
 import com.inditex.price.application.ports.in.forfilteringprices.FindByProductResult;
 import org.mapstruct.factory.Mappers;
 import com.inditex.price.adapters.in.forfiltering.FindByProductResponseDTO.ResponseStatusEnum;
-
 import java.util.List;
+import org.mapstruct.Mapper;
 
-@org.mapstruct.Mapper
+@Mapper
 public interface WebMapper {
 
-    WebMapper MAPPER = Mappers.getMapper(WebMapper.class);
+  WebMapper MAPPER = Mappers.getMapper(WebMapper.class);
 
-    FindByProductQuery toFindByProductQuery(FindByProductRequestDTO val);
+  FindByProductQuery toFindByProductQuery(FindByProductRequestDTO val);
 
-    default FindByProductResponseDTO toFindByProductResponse(FindByProductResult val) {
-        FindByProductResponseDTO responseDTO = new FindByProductResponseDTO();
-        responseDTO.setPrice(toPriceDTO(val));
-        responseDTO.setResponseStatus(ResponseStatusEnum.SUCCESS);
-        responseDTO.setErrors(null);
-        return responseDTO;
-    }
+  default FindByProductResponseDTO toFindByProductResponse(FindByProductResult val) {
+    FindByProductResponseDTO responseDTO = new FindByProductResponseDTO();
+    responseDTO.setPrice(toPriceDTO(val));
+    responseDTO.setResponseStatus(ResponseStatusEnum.SUCCESS);
+    responseDTO.setErrors(null);
+    return responseDTO;
+  }
 
-    PriceDTO toPriceDTO(FindByProductResult val);
+  PriceDTO toPriceDTO(FindByProductResult val);
 
-    ErrorDTO toErrorDTO(Error val);
+  ErrorDTO toErrorDTO(Error val);
 
-    List<ErrorDTO> toErrorDTO(List<Error> val);
+  List<ErrorDTO> toErrorDTO(List<Error> val);
+
 }

@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 @Data
 @AllArgsConstructor
 public class Brand {
-    private Long id;
-    private String name;
+
+  private Long id;
+  private String name;
+
 }

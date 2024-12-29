@@ -48,4 +48,5 @@ public class ApplicationLayer extends ArchitectureElement {
   void doesNotContainEmptyPackages() {
     denyEmptyPackages(allPackages());
   }
+
 }

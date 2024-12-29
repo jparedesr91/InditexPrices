@@ -3,6 +3,7 @@ package com.inditex.price.archunit;
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import java.util.List;
+
 import static com.tngtech.archunit.base.DescribedPredicate.greaterThanOrEqualTo;
 import static com.tngtech.archunit.lang.conditions.ArchConditions.containNumberOfElements;
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
@@ -60,4 +61,5 @@ abstract class ArchitectureElement {
       denyEmptyPackage(packageName);
     }
   }
+
 }

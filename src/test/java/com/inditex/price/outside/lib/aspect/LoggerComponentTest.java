@@ -4,7 +4,7 @@ import com.inditex.price.application.ports.out.forfilteringprices.ForObtainPrice
 import com.inditex.price.application.usecases.FindByProduct;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.reflect.MethodSignature;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -29,7 +29,7 @@ public class LoggerComponentTest {
         when(methodSignature.getMethod()).thenReturn(getClass().getDeclaredMethod("someMethod"));
         when(proceedingJoinPoint.getArgs()).thenReturn(new Object[]{"TESTING"});
         when(proceedingJoinPoint.proceed()).thenReturn(new Object());
-        Object object = loggerComponent.logArroundExec(proceedingJoinPoint);
+        Object object = loggerComponent.logAroundExec(proceedingJoinPoint);
         assertNotNull(object);
     }
 

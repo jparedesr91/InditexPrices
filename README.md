@@ -2,7 +2,7 @@
 Prices API
 
 ## Software version used
-- Java 17
+- Java 21
 - Maven 3.9.8
 
 ## How to run tests and start

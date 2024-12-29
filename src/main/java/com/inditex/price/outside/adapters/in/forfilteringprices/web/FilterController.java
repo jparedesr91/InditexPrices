@@ -8,6 +8,7 @@ import com.inditex.price.outside.lib.WebAdapter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
+
 import static com.inditex.price.outside.adapters.in.forfilteringprices.web.WebMapper.MAPPER;
 
 @RestController
@@ -15,13 +16,15 @@ import static com.inditex.price.outside.adapters.in.forfilteringprices.web.WebMa
 @WebAdapter
 public class FilterController implements FilterApi {
 
-    private final ForFilteringPrices forFilteringPrices;
+  private final ForFilteringPrices forFilteringPrices;
 
-    @Override
-    public ResponseEntity<FindByProductResponseDTO> findByProduct(FindByProductRequestDTO findByProductRequestDTO) {
-        return ResponseEntity
-                .ok(MAPPER.toFindByProductResponse(
-                        forFilteringPrices.findByProduct(
-                                MAPPER.toFindByProductQuery(findByProductRequestDTO))));
-    }
+  @Override
+  public ResponseEntity<FindByProductResponseDTO> findByProduct(
+      FindByProductRequestDTO findByProductRequestDTO) {
+    return ResponseEntity
+        .ok(MAPPER.toFindByProductResponse(
+            forFilteringPrices.findByProduct(
+                MAPPER.toFindByProductQuery(findByProductRequestDTO))));
+  }
+
 }

@@ -55,4 +55,5 @@ public class HexagonalArchitecture extends ArchitectureElement {
     this.applicationLayer.incomingAndOutgoingPortsDoNotDependOnEachOther(classes);
     this.domainDoesNotDependOnAdapters(classes);
   }
+
 }

@@ -14,7 +14,6 @@ import java.lang.annotation.RetentionPolicy;
 @Component
 public @interface PersistenceAdapter {
 
-  @AliasFor(annotation = Component.class)
-  String value() default "";
+  @AliasFor(annotation = Component.class) String value() default "";
 
 }

@@ -1,5 +1,5 @@
-FROM eclipse-temurin:17-jdk-alpine as JRE_BUILDER
-RUN apk --no-cache add openjdk17-jdk openjdk17-jmods
+FROM eclipse-temurin:21-jdk-alpine as JRE_BUILDER
+RUN apk --no-cache add openjdk21-jdk openjdk21-jmods
 ENV MINIMAL_JAVA="/opt/minimal-java"
 RUN "$JAVA_HOME"/bin/jlink \
     --verbose \

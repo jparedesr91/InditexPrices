@@ -22,29 +22,32 @@ import java.util.stream.Collectors;
 @ConditionalOnProperty(name = "aspect.enabled", havingValue = "true")
 public class LoggerComponent {
 
-    private static final String POINTCUT = "execution(* com.inditex..*(..))))";
+  private static final String POINTCUT = "execution(* com.inditex..*(..))))";
 
-    @Around(POINTCUT)
-    @SneakyThrows
-    public Object logArroundExec(ProceedingJoinPoint pjp) {
-        final StopWatch stopWatch = new StopWatch();
-        log.info("before {}", constructLogMsg(pjp));
-        stopWatch.start();
-        Object proceed = pjp.proceed();
-        stopWatch.stop();
-        log.info("after {} with result: {} taking {} ms",
-                constructLogMsg(pjp), Objects.isNull(proceed) ? "" : proceed.toString(), stopWatch.getTotalTimeMillis());
-        return proceed;
-    }
+  @Around(POINTCUT)
+  @SneakyThrows
+  public Object logAroundExec(ProceedingJoinPoint pjp) {
+    final StopWatch stopWatch = new StopWatch();
+    log.info("before {}", constructLogMsg(pjp));
+    stopWatch.start();
+    Object proceed = pjp.proceed();
+    stopWatch.stop();
+    log.info("after {} with result: {} taking {} ms",
+        constructLogMsg(pjp), Objects.isNull(proceed) ? "" : proceed.toString(),
+        stopWatch.getTotalTimeMillis());
+    return proceed;
+  }
 
-    @AfterThrowing(pointcut = POINTCUT, throwing = "e")
-    public void logAfterException(JoinPoint jp, Exception e) {
-        log.error("Exception during: {} with ex: {}", constructLogMsg(jp), e.toString());
-    }
+  @AfterThrowing(pointcut = POINTCUT, throwing = "e")
+  public void logAfterException(JoinPoint jp, Exception e) {
+    log.error("Exception during: {} with ex: {}", constructLogMsg(jp), e.toString());
+  }
 
-    private String constructLogMsg(JoinPoint jp) {
-        String args = Arrays.stream(jp.getArgs()).map(String::valueOf).collect(Collectors.joining(",", "[", "]"));
-        Method method = ((MethodSignature) jp.getSignature()).getMethod();
-        return "@" + method.getName() + ":" + args;
-    }
+  private String constructLogMsg(JoinPoint jp) {
+    String args = Arrays.stream(jp.getArgs()).map(String::valueOf)
+        .collect(Collectors.joining(",", "[", "]"));
+    Method method = ((MethodSignature) jp.getSignature()).getMethod();
+    return "@" + method.getName() + ":" + args;
+  }
+
 }

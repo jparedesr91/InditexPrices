@@ -6,5 +6,7 @@ import org.springframework.http.ResponseEntity;
 
 @Data
 public class FilterControllerTextContext {
-    private ResponseEntity<FindByProductResponseDTO> response;
+
+  private ResponseEntity<FindByProductResponseDTO> response;
+
 }

@@ -58,4 +58,5 @@ public class Adapters extends ArchitectureElement {
   void doesNotContainEmptyPackages() {
     denyEmptyPackages(allAdapterPackages());
   }
+
 }

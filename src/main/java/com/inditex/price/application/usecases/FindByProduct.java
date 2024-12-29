@@ -18,19 +18,20 @@ import static com.inditex.price.application.lib.mapper.ApplicationMapper.MAPPER;
 @RequiredArgsConstructor
 public class FindByProduct implements ForFilteringPrices {
 
-    private final ForObtainPrices filteringPrices;
+  private final ForObtainPrices filteringPrices;
 
-    @Override
-    @SneakyThrows
-    public FindByProductResult findByProduct(FindByProductQuery findByProductQuery) {
-        Price price = filteringPrices.findByProduct(
-                                            findByProductQuery.productId(),
-                                            findByProductQuery.brandId(),
-                                            findByProductQuery.applicationDate());
-        if (Objects.isNull(price)) {
-            throw new NotFoundException(ErrorType.RESOURCE_NOT_FOUND.toError());
-        } else {
-            return MAPPER.toFindByProductResult(price);
-        }
+  @Override
+  @SneakyThrows
+  public FindByProductResult findByProduct(FindByProductQuery findByProductQuery) {
+    Price price = filteringPrices.findByProduct(
+        findByProductQuery.productId(),
+        findByProductQuery.brandId(),
+        findByProductQuery.applicationDate());
+    if (Objects.isNull(price)) {
+      throw new NotFoundException(ErrorType.RESOURCE_NOT_FOUND.toError());
+    } else {
+      return MAPPER.toFindByProductResult(price);
     }
+  }
+
 }
