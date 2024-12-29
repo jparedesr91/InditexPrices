@@ -9,7 +9,7 @@ Prices API
 1. Step on the source folder.
 2. Execute the following command `mvn clean install`.
 
-To run it, just execute the following command `java -jar target/inditex-prices.jar`.
+To run it, just execute the following command `java -jar target/inditex-prices-0.0.1.jar`.
 
 ## Dockerize API
 1. Step on the source folder.
