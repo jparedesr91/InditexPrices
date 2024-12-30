@@ -1,9 +1,9 @@
 package com.inditex.price.outside.adapters.out.forfilteringpirces.persistence;
 
-import com.inditex.price.outside.adapters.out.forfilteringprices.persistance.BrandEntity;
-import com.inditex.price.outside.adapters.out.forfilteringprices.persistance.PriceEntity;
-import com.inditex.price.outside.adapters.out.forfilteringprices.persistance.PriceRepository;
-import com.inditex.price.outside.adapters.out.forfilteringprices.persistance.ProductEntity;
+import com.inditex.price.outside.adapters.out.forobtainprices.persistance.BrandEntity;
+import com.inditex.price.outside.adapters.out.forobtainprices.persistance.PriceEntity;
+import com.inditex.price.outside.adapters.out.forobtainprices.persistance.PriceRepository;
+import com.inditex.price.outside.adapters.out.forobtainprices.persistance.ProductEntity;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @DataJpaTest
-public class PriceRepositoryTest {
+class PriceRepositoryTest {
 
     @Autowired
     private PriceRepository priceRepository;

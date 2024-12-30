@@ -16,14 +16,14 @@ import static com.inditex.price.outside.adapters.in.forfilteringprices.web.WebMa
 @WebAdapter
 public class FilterController implements FilterApi {
 
-  private final ForFilteringPrices forFilteringPrices;
+  private final ForFilteringPrices findByProduct;
 
   @Override
   public ResponseEntity<FindByProductResponseDTO> findByProduct(
       FindByProductRequestDTO findByProductRequestDTO) {
     return ResponseEntity
         .ok(MAPPER.toFindByProductResponse(
-            forFilteringPrices.findByProduct(
+            findByProduct.findByProduct(
                 MAPPER.toFindByProductQuery(findByProductRequestDTO))));
   }
 

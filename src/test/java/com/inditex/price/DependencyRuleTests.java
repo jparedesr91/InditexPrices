@@ -36,13 +36,11 @@ class DependencyRuleTests {
             "com.inditex.price.application..",
             "lombok..",
             "jakarta.validation..",
-            "org.springframework.core.annotation..",
-            "org.springframework.stereotype..",
             "org.mapstruct..",
+            "java..",
             "org.junit..",
             "org.mockito..",
-            "org.springframework.test..",
-            "java.."
+            "org.springframework.test.."
         )
         .check(new ClassFileImporter()
             .importPackages("com.inditex.price.."));

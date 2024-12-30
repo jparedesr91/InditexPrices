@@ -14,12 +14,12 @@ import java.time.LocalDateTime;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.springframework.test.util.AssertionErrors.assertNotNull;
 
-public class WebMapperTest {
+class WebMapperTest {
 
     private final WebMapper mapper = Mappers.getMapper(WebMapper.class);
 
     @Test
-    public void testMappingFromFindByProductRequestDTOtoFindByProductQuery() {
+    void testMappingFromFindByProductRequestDTOtoFindByProductQuery() {
         FindByProductQuery expected = getFindByProductQuery();
         FindByProductQuery result = mapper.toFindByProductQuery(getFindByProductRequestDTO());
         assertNotNull("FindByProductQuery should not be null", result);
@@ -29,7 +29,7 @@ public class WebMapperTest {
     }
 
     @Test
-    public void testMappingFromFindByProductResultToFindByProductResponseDTO() {
+    void testMappingFromFindByProductResultToFindByProductResponseDTO() {
         FindByProductResponseDTO expected = getFindByProductResponseDTO();
         FindByProductResponseDTO result = mapper.toFindByProductResponse(getFindByProductResult());
         assertNotNull("FindByProductResult should not be null", result);
@@ -39,7 +39,7 @@ public class WebMapperTest {
     }
 
     @Test
-    public void testMappingFromFindByProductResultToPriceDTO() {
+    void testMappingFromFindByProductResultToPriceDTO() {
         PriceDTO expected = getPriceDTO();
         PriceDTO result = mapper.toPriceDTO(getFindByProductResult());
         assertNotNull("PriceDTO should not be null", result);
@@ -51,7 +51,7 @@ public class WebMapperTest {
     }
 
     @Test
-    public void testMappingFromErrorToErrorDTO() {
+    void testMappingFromErrorToErrorDTO() {
         ErrorDTO expected = getErrorDTO();
         ErrorDTO result = mapper.toErrorDTO(getError());
         assertNotNull("ErrorDTO should not be null", result);

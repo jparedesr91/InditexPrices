@@ -1,4 +1,4 @@
-package com.inditex.price.outside.adapters.out.forfilteringprices.persistance;
+package com.inditex.price.outside.adapters.out.forobtainprices.persistance;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

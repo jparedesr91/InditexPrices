@@ -1,12 +1,12 @@
-package com.inditex.price.outside.adapters.out.forfilteringprices.persistance;
+package com.inditex.price.outside.adapters.out.forobtainprices.persistance;
 
 import com.inditex.price.application.domain.Price;
-import com.inditex.price.application.ports.out.forfilteringprices.ForObtainPrices;
+import com.inditex.price.application.ports.out.forobtainprices.ForObtainPrices;
 import com.inditex.price.outside.lib.PersistenceAdapter;
 import lombok.RequiredArgsConstructor;
 import java.time.LocalDateTime;
 
-import static com.inditex.price.outside.adapters.out.forfilteringprices.persistance.PersistenceMapper.MAPPER;
+import static com.inditex.price.outside.adapters.out.forobtainprices.persistance.PersistenceMapper.MAPPER;
 
 @PersistenceAdapter
 @RequiredArgsConstructor

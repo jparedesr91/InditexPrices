@@ -1,4 +1,4 @@
-package com.inditex.price.application.ports.out.forfilteringprices;
+package com.inditex.price.application.ports.out.forobtainprices;
 
 import com.inditex.price.application.domain.Price;
 import java.time.LocalDateTime;

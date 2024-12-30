@@ -3,19 +3,31 @@ package com.inditex.price.outside.adapters.out.forfilteringpirces.persistence;
 import com.inditex.price.application.domain.Brand;
 import com.inditex.price.application.domain.Price;
 import com.inditex.price.application.domain.Product;
-import com.inditex.price.outside.adapters.out.forfilteringprices.persistance.*;
+import com.inditex.price.outside.adapters.out.forobtainprices.persistance.BrandEntity;
+import com.inditex.price.outside.adapters.out.forobtainprices.persistance.ObtainPrices;
+import com.inditex.price.outside.adapters.out.forobtainprices.persistance.PriceEntity;
+import com.inditex.price.outside.adapters.out.forobtainprices.persistance.PriceRepository;
+import com.inditex.price.outside.adapters.out.forobtainprices.persistance.ProductEntity;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import java.time.LocalDateTime;
+import org.mockito.junit.jupiter.MockitoExtension;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.*;
 
-public class ObtainPricesTest {
+@ExtendWith(MockitoExtension.class)
+class ObtainPricesTest {
 
-    private final PriceRepository priceRepository = Mockito.mock(PriceRepository.class);
-    private final ObtainPrices obtainPrices = new ObtainPrices(this.priceRepository);
+    @Mock
+    private PriceRepository priceRepository;
+
+    @InjectMocks
+    private ObtainPrices obtainPrices;
 
     @Test
     void Given_Prices_When_GetByProduct_Then_ReturnPrice() {

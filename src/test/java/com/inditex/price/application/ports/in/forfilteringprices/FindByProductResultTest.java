@@ -5,10 +5,10 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import java.time.LocalDateTime;
 
-public class FindByProductResultTest {
+class FindByProductResultTest {
 
   @Test
-  public void validationOk() {
+  void validationOk() {
     new FindByProductResult
         (35455L,
             1L,
@@ -19,7 +19,7 @@ public class FindByProductResultTest {
   }
 
   @Test
-  public void productIdValidationFails() {
+  void productIdValidationFails() {
     Assertions.assertThrows(ConstraintViolationException.class, () -> {
       new FindByProductResult
           (null,
@@ -32,7 +32,7 @@ public class FindByProductResultTest {
   }
 
   @Test
-  public void brandIdValidationFails() {
+  void brandIdValidationFails() {
     Assertions.assertThrows(ConstraintViolationException.class, () -> {
       new FindByProductResult
           (1L,
@@ -45,7 +45,7 @@ public class FindByProductResultTest {
   }
 
   @Test
-  public void startDateValidationFails() {
+  void startDateValidationFails() {
     Assertions.assertThrows(ConstraintViolationException.class, () -> {
       new FindByProductResult
           (1L,
@@ -58,7 +58,7 @@ public class FindByProductResultTest {
   }
 
   @Test
-  public void endDateValidationFails() {
+  void endDateValidationFails() {
     Assertions.assertThrows(ConstraintViolationException.class, () -> {
       new FindByProductResult
           (1L,
@@ -71,7 +71,7 @@ public class FindByProductResultTest {
   }
 
   @Test
-  public void priceValidationFails() {
+  void priceValidationFails() {
     Assertions.assertThrows(ConstraintViolationException.class, () -> {
       new FindByProductResult
           (1L,

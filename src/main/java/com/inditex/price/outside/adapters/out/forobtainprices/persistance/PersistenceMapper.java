@@ -1,4 +1,4 @@
-package com.inditex.price.outside.adapters.out.forfilteringprices.persistance;
+package com.inditex.price.outside.adapters.out.forobtainprices.persistance;
 
 import com.inditex.price.application.domain.Price;
 import org.mapstruct.factory.Mappers;

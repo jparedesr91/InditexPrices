@@ -5,10 +5,10 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import java.time.LocalDateTime;
 
-public class FindByProductQueryTest {
+class FindByProductQueryTest {
 
   @Test
-  public void validationOk() {
+  void validationOk() {
     new FindByProductQuery(
         1L,
         1L,
@@ -16,7 +16,7 @@ public class FindByProductQueryTest {
   }
 
   @Test
-  public void productIdFails() {
+  void productIdFails() {
     Assertions.assertThrows(ConstraintViolationException.class, () -> {
       new FindByProductQuery(
           null,
@@ -26,7 +26,7 @@ public class FindByProductQueryTest {
   }
 
   @Test
-  public void brandIdFails() {
+  void brandIdFails() {
     Assertions.assertThrows(ConstraintViolationException.class, () -> {
       new FindByProductQuery(
           1L,
@@ -36,7 +36,7 @@ public class FindByProductQueryTest {
   }
 
   @Test
-  public void applicationDateFails() {
+  void applicationDateFails() {
     Assertions.assertThrows(ConstraintViolationException.class, () -> {
       new FindByProductQuery(
           1L,

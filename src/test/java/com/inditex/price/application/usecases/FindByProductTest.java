@@ -6,10 +6,13 @@ import com.inditex.price.application.domain.Product;
 import com.inditex.price.application.ports.in.forfilteringprices.FindByProductQuery;
 import com.inditex.price.application.ports.in.forfilteringprices.FindByProductResult;
 import com.inditex.price.application.lib.exceptions.NotFoundException;
-import com.inditex.price.application.ports.out.forfilteringprices.ForObtainPrices;
+import com.inditex.price.application.ports.out.forobtainprices.ForObtainPrices;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import java.time.LocalDateTime;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -17,22 +20,23 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.*;
 
-public class FindByProductTest {
+@ExtendWith(MockitoExtension.class)
+class FindByProductTest {
 
-  private final ForObtainPrices forObtainPrices =
-      Mockito.mock(ForObtainPrices.class);
+  @Mock
+  private ForObtainPrices forObtainPrices;
 
-  private final FindByProduct findByProductUseCase =
-      new FindByProduct(this.forObtainPrices);
+  @InjectMocks
+  private FindByProduct forFilteringPrices;
 
   @Test
   void Given_PricesNotFound_When_GetByProduct_Then_ReturnError() {
     when(forObtainPrices.findByProduct(anyLong(), anyLong(), any(LocalDateTime.class))).thenReturn(
         null);
     assertThrows(NotFoundException.class, ()
-        -> findByProductUseCase
+        -> forFilteringPrices
         .findByProduct(getFindByProductQuery()));
-    verify(forObtainPrices, times(1)).findByProduct(anyLong(), anyLong(), any(LocalDateTime.class));
+    verify(forObtainPrices).findByProduct(anyLong(), anyLong(), any(LocalDateTime.class));
   }
 
   @Test
@@ -40,8 +44,8 @@ public class FindByProductTest {
     when(forObtainPrices.findByProduct(anyLong(), anyLong(), any(LocalDateTime.class))).thenReturn(
         getPrice());
     assertEquals(getFindByProductResult(),
-        findByProductUseCase.findByProduct(getFindByProductQuery()));
-    verify(forObtainPrices, times(1)).findByProduct(anyLong(), anyLong(), any(LocalDateTime.class));
+        forFilteringPrices.findByProduct(getFindByProductQuery()));
+    verify(forObtainPrices).findByProduct(anyLong(), anyLong(), any(LocalDateTime.class));
   }
 
   private FindByProductQuery getFindByProductQuery() {

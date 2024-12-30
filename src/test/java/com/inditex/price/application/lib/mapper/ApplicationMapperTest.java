@@ -11,12 +11,12 @@ import java.time.LocalDateTime;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.springframework.test.util.AssertionErrors.assertNotNull;
 
-public class ApplicationMapperTest {
+class ApplicationMapperTest {
 
   private final ApplicationMapper mapper = Mappers.getMapper(ApplicationMapper.class);
 
   @Test
-  public void testMappingFromPriceToFindByProductResult() {
+  void testMappingFromPriceToFindByProductResult() {
     Price price = getPrice();
     FindByProductResult result = mapper.toFindByProductResult(price);
     assertNotNull("FindByProductResult should not be null", result);

@@ -1,4 +1,4 @@
-package com.inditex.price.outside.adapters.out.forfilteringprices.persistance;
+package com.inditex.price.outside.adapters.out.forobtainprices.persistance;
 
 import jakarta.persistence.Id;
 import jakarta.persistence.Entity;
